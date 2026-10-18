@@ -1,0 +1,16 @@
+mykatago
+Copyright (c) Neo Jou
+
+This program is a Go game review tool. Its review workflow, analysis formulas,
+and screen layout follow ideas from KaTrain:
+
+  https://github.com/sanderland/katrain
+  Copyright (c) 2020 Sander Land
+  Licensed under the MIT License.
+
+No KaTrain images, sounds, or fonts are included. Board stones, coordinates,
+and navigation marks are drawn at runtime. The bundled Noto Sans TC font is
+under the SIL Open Font License 1.1.
+
+KataGo (https://github.com/lightvector/KataGo) is a separate program. mykatago
+does not ship the KataGo executable or neural-network weights.

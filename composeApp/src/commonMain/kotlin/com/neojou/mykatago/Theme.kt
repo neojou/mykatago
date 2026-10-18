@@ -2,7 +2,9 @@ package com.neojou.mykatago
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import org.jetbrains.compose.resources.Font
 
@@ -40,6 +42,15 @@ private fun Typography.withFontFamily(fontFamily: FontFamily): Typography = copy
 fun AppTheme(content: @Composable () -> Unit) {
     val fontFamily = appFontFamily()
     MaterialTheme(
+        colorScheme = darkColorScheme(
+            background = Color(0xFF24303E),
+            surface = Color(0xFF2E4158),
+            surfaceVariant = Color(0xFF40556E),
+            primary = Color(0xFFCCCC1A),
+            onBackground = Color(0xFFF2F2F2),
+            onSurface = Color(0xFFF2F2F2),
+            onPrimary = Color(0xFF1A1A1A),
+        ),
         typography = Typography().withFontFamily(fontFamily),
         content = content,
     )

@@ -7,6 +7,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.neojou.mykatago.ui.review.ReviewScreen
+import com.neojou.mykatago.ui.review.ReviewSession
 import com.neojou.tools.LogLevel
 import com.neojou.tools.MyLog
 import com.neojou.tools.SystemSettings
@@ -75,7 +77,7 @@ private sealed class AppInitState {
  * @see LaunchedEffect
  */
 @Composable
-fun App(about: AboutRequest = remember { AboutRequest() }) {
+fun App(about: AboutRequest = remember { AboutRequest() }, session: ReviewSession) {
     var initState: AppInitState by remember { mutableStateOf(AppInitState.Loading) }
 
     LaunchedEffect(Unit) {
@@ -93,7 +95,7 @@ fun App(about: AboutRequest = remember { AboutRequest() }) {
     AppTheme {
         when (val state = initState) {
             AppInitState.Loading -> Text("Loading...")
-            AppInitState.Ready -> HomeScreen(about)
+            AppInitState.Ready -> ReviewScreen(session, about::show)
             is AppInitState.Error -> Text("Init failed: ${state.error.message ?: "unknown"}")
         }
         if (about.visible) {
